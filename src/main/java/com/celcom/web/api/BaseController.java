@@ -18,14 +18,14 @@ import com.celcom.web.ws.ExceptionAttributes;
 public class BaseController {
 
 
-    protected Logger logger = LoggerFactory.getLogger(this.getClass());
+    //protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     @ExceptionHandler(NoResultException.class)
     public ResponseEntity<Map<String, Object>> handleNoResultException(
             NoResultException noResultException, HttpServletRequest request) {
 
-        logger.info("> handleNoResultException");
+        //logger.info("> handleNoResultException");
 
         ExceptionAttributes exceptionAttributes = new DefaultExceptionAttributes();
 
@@ -33,7 +33,7 @@ public class BaseController {
                 .getExceptionAttributes(noResultException, request,
                         HttpStatus.NOT_FOUND);
 
-        logger.info("< handleNoResultException");
+       // logger.info("< handleNoResultException");
         return new ResponseEntity<Map<String, Object>>(responseBody,
                 HttpStatus.NOT_FOUND);
     }
@@ -43,8 +43,8 @@ public class BaseController {
     public ResponseEntity<Map<String, Object>> handleException(
             Exception exception, HttpServletRequest request) {
 
-        logger.error("> handleException");
-        logger.error("- Exception: ", exception);
+        //logger.error("> handleException");
+       // logger.error("- Exception: ", exception);
 
         ExceptionAttributes exceptionAttributes = new DefaultExceptionAttributes();
 
@@ -52,7 +52,7 @@ public class BaseController {
                 .getExceptionAttributes(exception, request,
                         HttpStatus.INTERNAL_SERVER_ERROR);
 
-        logger.error("< handleException");
+        //logger.error("< handleException");
         return new ResponseEntity<Map<String, Object>>(responseBody,
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }

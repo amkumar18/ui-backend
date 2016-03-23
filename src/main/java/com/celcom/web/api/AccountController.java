@@ -27,10 +27,10 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Account>> getAccounts() {
-        logger.info("> getAccounts");
+        //logger.info("> getAccounts");
 
         Collection<Account> accounts = accountService.findAll();
-        logger.info("< getAccounts");
+        //logger.info("< getAccounts");
         return new ResponseEntity<Collection<Account>>(accounts,
                 HttpStatus.OK);
     }
@@ -42,14 +42,14 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Account> getAccount(@PathVariable("id") Long id) {
-        logger.info("> getAccount id:{}", id);
+        //logger.info("> getAccount id:{}", id);
 
         Account account = accountService.findOne(id);
         if (account == null) {
             return new ResponseEntity<Account>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< getAccount id:{}", id);
+        //logger.info("< getAccount id:{}", id);
         return new ResponseEntity<Account>(account, HttpStatus.OK);
     }
     
@@ -58,14 +58,14 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Account>> getAccountByFirstName(@PathVariable("firstName") String firstName) {
-        logger.info("> getAccountByFirstName id:{}", firstName);
+        //logger.info("> getAccountByFirstName id:{}", firstName);
 
         Collection<Account> accountCol = accountService.searchAccountdetailsByFirstName(firstName);
         if (accountCol == null) {
             return new ResponseEntity<Collection<Account>>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< getAccountByFirstName id:{}", firstName);
+        //logger.info("< getAccountByFirstName id:{}", firstName);
         return new ResponseEntity<Collection<Account>>(accountCol, HttpStatus.OK);
     }
     
@@ -74,14 +74,14 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Account>> getAccountByFirstNameLastName(@PathVariable("lastName") String lastName) {
-        logger.info("> getAccountByLastName id:{}", lastName);
+        //logger.info("> getAccountByLastName id:{}", lastName);
 
         Collection<Account> accountCol = accountService.searchaccountdetailsByLastName(lastName);
         if (accountCol == null) {
             return new ResponseEntity<Collection<Account>>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< getAccountByLastName id:{}", lastName);
+        //logger.info("< getAccountByLastName id:{}", lastName);
         return new ResponseEntity<Collection<Account>>(accountCol, HttpStatus.OK);
     }
 
@@ -92,14 +92,14 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Account> searchAccountByAccountNo(@PathVariable("accountNo") String accountNo) {
-        logger.info("> getAccount accountNo:{}", accountNo);
+        //logger.info("> getAccount accountNo:{}", accountNo);
 
         Account account = accountService.searchAccountDetailsByAccountNo(accountNo);
         if (account == null) {
             return new ResponseEntity<Account>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< getAccount accountNo:{}", accountNo);
+        //logger.info("< getAccount accountNo:{}", accountNo);
         return new ResponseEntity<Account>(account, HttpStatus.OK);
     }
     
@@ -109,14 +109,14 @@ public class AccountController extends BaseController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Account> searchAccountByMsisdn(@PathVariable("msisdn") String msisdn) {
-        logger.info("> searchAccountByMsisdn msisdn:{}", msisdn);
+        //logger.info("> searchAccountByMsisdn msisdn:{}", msisdn);
 
         Account account = accountService.searchAccountDetailsByMsisdn(msisdn);
         if (account == null) {
             return new ResponseEntity<Account>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< searchAccountByMsisdn msisdn:{}", msisdn);
+        //logger.info("< searchAccountByMsisdn msisdn:{}", msisdn);
         return new ResponseEntity<Account>(account, HttpStatus.OK);
     }
 

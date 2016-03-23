@@ -25,7 +25,7 @@ import com.celcom.repository.ServiceInstanceRepository;
 @Service
 public class AccountServiceBean implements AccountService {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    //private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @Autowired
     private ServiceInstanceRepository serviceInstanceRepository;
@@ -41,21 +41,21 @@ public class AccountServiceBean implements AccountService {
 
     @Override
     public Collection<Account> findAll() {
-        logger.info("> findAll");
+        //logger.info("> findAll");
 
         Collection<Account> accounts = accountRepository.findAll();
 
-        logger.info("< findAll");
+        //logger.info("< findAll");
         return accounts;
     }
 
     @Override
     public Account findOne(Long id) {
-        logger.info("> findOne id:{}", id);
+        //logger.info("> findOne id:{}", id);
 
         Account account = accountRepository.findOne(id);
 
-        logger.info("< findOne id:{}", id);
+       // logger.info("< findOne id:{}", id);
         return account;
     }
 
